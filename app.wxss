@@ -1,0 +1,15 @@
+/**app.wxss**/
+page {
+  height: 100%;
+  width: 100%;
+  background-color: #173771;
+  -webkit-text-size-adjust: 100%;
+  font-family: "Noto Sans S Chinese";
+  font-size: 30rpx;
+  color: #303133;
+}
+.container {
+  height: calc(100% - 30px);
+  width: calc(100% - 30px);
+  padding: 15px;
+}

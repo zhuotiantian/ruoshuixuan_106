@@ -1,0 +1,14 @@
+.btn {
+  display: inline-block;
+  font-size: 26rpx;
+  text-align: center;
+  padding: 0 30rpx;
+  width: auto;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 34rpx;
+}
+.btn-yellow {
+  background: #f8b551;
+  color: black;
+}

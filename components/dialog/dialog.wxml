@@ -1,0 +1,8 @@
+<view wx:if="{{show===true}}">
+  <view class="dialog-fog"></view>
+  <view class="dialog-wrapper">
+    <image src="/static/images/firstPage/close.png" class="close" catchtap="close"></image>
+    <rich-text nodes="{{text}}" class="description"></rich-text>
+    <my-button type="yellow" size="small" class="absolute"></my-button>
+  </view>
+</view>

@@ -1,0 +1,51 @@
+/**index.wxss**/
+.background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.top-image {
+  width: 100%;
+  height: 240rpx;
+}
+swiper {
+  margin-bottom: 15px;
+  height: 240rpx;
+}
+.dialog .weui-dialog {
+  min-width: 50%;
+}
+.dialog .weui-dialog__btn {
+  color: #f8b551;
+}
+.middle {
+  display: flex;
+  height: 160rpx;
+  width: 100%;
+  border-radius: 18rpx;
+  justify-content: center;
+  background: white;
+  align-items: center;
+  font-size: 24rpx;
+}
+.middle .icon {
+  height: 50rpx;
+  width: 50rpx;
+  background-repeat: no-repeat;
+  margin-bottom: 24rpx;
+}
+.middle .item {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.flex-span {
+  flex: 1;
+}

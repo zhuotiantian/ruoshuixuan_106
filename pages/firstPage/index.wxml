@@ -1,0 +1,23 @@
+<!-- index.wxml -->
+<image class="background" src="/static/images/firstPage/bg.png" />
+<view class="container">
+  <swiper autoplay="true" circular="true">
+    <swiper-item wx:for="{{swiper_list}}" wx:key="{{item.id}}">
+      <image class="top-image" src="{{domain+item.image}}" data-description="{{item.description}}" bindtap="showImageDetails" />
+    </swiper-item>
+  </swiper>
+  <view class="middle">
+    <view class="item">
+      <image class="icon ranking" src="/static/images/firstPage/ranking_icon.png" />
+      <view>排行榜</view>
+    </view>
+    <view class="item">
+      <image class="icon ranking" src="/static/images/firstPage/share.png" />
+      <view>分享</view>
+    </view>
+  </view>
+  <view class="gameList">
+    <view class="gameList-item" wx:for="{{game_list}}" wx:key="index"></view>
+  </view>
+</view>
+<dialog show="{{showDetails}}" text="{{description}}" bind:close="close"></dialog>
