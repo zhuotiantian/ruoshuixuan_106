@@ -1,5 +1,5 @@
 {
-  "pages": ["pages/firstPage/index"],
+  "pages": ["pages/firstPage/index", "pages/rank/index"],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#173771",

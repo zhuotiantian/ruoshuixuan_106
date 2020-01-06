@@ -1,0 +1,48 @@
+.rank-wrapper {
+  height: 100%;
+  width: 100%;
+  background: white;
+}
+.header {
+  height: 130rpx;
+  line-height: 130rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 72rpx;
+  background: #fff;
+  color: #333;
+  font-size: 34rpx;
+  font-size: 600;
+}
+.image {
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 60rpx;
+  vertical-align: middle;
+}
+.content {
+  background: #f7f7f7;
+  padding: 30rpx;
+  height: calc(100% - 192rpx);
+  overflow-y: hidden;
+}
+.icon {
+  width: 38rpx;
+  height: 49rpx;
+}
+.content .ul {
+  background: white;
+  box-sizing: content-box;
+  height: 100%;
+  overflow-y: auto;
+}
+.content .ul .li {
+  display: flex;
+  padding: 20rpx 30rpx;
+  height: 80rpx;
+  align-items: center;
+}
+.content .ul .li:nth-child(2n) {
+  background: #e0f6ff;
+}

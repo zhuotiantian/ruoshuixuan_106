@@ -10,7 +10,23 @@ Page({
     domain: app.globalData.URL,
     showDetails: false,
     description: "",
-    button: [{ text: "确认" }]
+    button: [{ text: "确认" }],
+    showRegisterPocket: false,
+    showSharePocket: false,
+    registerPocketList: [],
+    sharePocketList: []
+  },
+  onShareAppMessage: function(res) {
+    return {
+      path: "/pages/firstPage/index?id=" + this.userId,
+      title: "11种脑力游戏，一起来玩吧！",
+      success: function() {
+        console.log("分享成功");
+      },
+      error: function() {
+        console.log("分享失败");
+      }
+    };
   },
   onLoad: function() {
     if (!app.globalData.userInfo.token) {
@@ -38,7 +54,7 @@ Page({
       userId: id
     });
     this.getIndexData();
-    this.getRedPocket();
+    this.getRedPocketData();
   },
   //获取首页数据
   async getIndexData() {
@@ -48,16 +64,68 @@ Page({
       token: this.token
     });
     let { game_list, rotary_planting_map } = result.data;
+    let rules = [
+      ["自由选择闪视时间和张数", "回忆并选出看到的扑克牌"],
+      ["在最短时间内记忆52张扑克牌", "回忆并按顺序作答出所记扑克牌"],
+      ["按顺序记忆并作答出所记扑克牌", "记忆牌副越多越好"],
+      ["按顺序记忆并作答出所记数字", "记忆的数字越多越好"],
+      ["按顺序记忆并作答出所记数字", "记忆速度越快越好"],
+      ["按顺序记忆并作答出所记词语", "记忆的数字越多越好"],
+      ["按顺序记忆并作答出所记词语", "记忆的词语越多越好"],
+      ["记忆人名头像，越多越好", "作答时将人名和头像正确搭配"],
+      ["记忆抽象图形，越多越好", "作答时将每行正确次序标注出来"],
+      ["按照播放数字顺序记忆并作答所听数字", "记得越多越好"],
+      ["记忆虚拟事件和日期，越多越好", "作答时将所记日期输入到所记历史事件前"]
+    ];
+    let answerTime = [
+      0,
+      300,
+      7200,
+      1800,
+      900,
+      7200,
+      1800,
+      1800,
+      1800,
+      1800,
+      300,
+      900
+    ];
+    game_list.forEach((e, index) => {
+      e.rule = rules[index];
+      e.answerTime = answerTime[index];
+    });
     this.setData({
-      swiper_list: rotary_planting_map
+      swiper_list: rotary_planting_map,
+      game_list
     });
   },
   // 获取红包数据
-  async getRedPocket() {
+  async getRedPocketData() {
     let result = await app.wxRequest({
       url: "/api/wxapp.red_envelopes/getRegisterToShareRedEnvelopes",
       method: "GET",
       token: this.token
+    });
+    let registerPocket = result.data.red_envelopes.filter(e => {
+      return e.name == "注册";
+    });
+    let sharePocket = result.data.red_envelopes.filter(e => {
+      return e.name !== "注册";
+    });
+    if (registerPocket.length > 0) {
+      this.setData({
+        showRegisterPocket: true
+      });
+    }
+    if (sharePocket.length > 0) {
+      this.setData({
+        showSharePocket: true
+      });
+    }
+    this.setData({
+      registerPocketList: registerPocket,
+      sharePocketList: sharePocket
     });
   },
   //显示轮播图详情
@@ -68,10 +136,60 @@ Page({
       description
     });
   },
-  // 关闭弹窗
+  // 关闭轮播图详情弹窗
   close(e) {
     this.setData({
       showDetails: false
     });
+  },
+  //关闭注册红包领取弹窗
+  closeRegPocket() {
+    this.setData({
+      showRegisterPocket: false
+    });
+  },
+  // 关闭分享红包领取弹窗
+  closeSharePocket() {
+    this.setData({
+      showSharePocket: false
+    });
+  },
+  // 跳转到排行榜页面
+  toRank() {
+    wx.navigateTo({
+      url: "/pages/rank/index"
+    });
+  },
+  // 领取红包
+  async getRedPocket() {
+    let { token } = app.globalData.userInfo;
+    let result = await app.wxRequest({
+      url: "/api/wxapp.red_envelopes/getARedEnvelope",
+      data: {
+        red_envelopes_id: this.data.showRegisterPocket
+          ? this.registerPocketList[0].id
+          : this.sharePocketList[0].id,
+        game_classification_id: 0
+      },
+      token
+    });
+    wx.showToast({
+      title: "领取成功",
+      icon: "success"
+    });
+    this.setData({
+      showRegisterPocket: false,
+      showSharePocket: false
+    });
+    wx.navigateTo({
+      url: "/pages/my/hongbao/main"
+    });
+  },
+  toGame(e) {
+    console.log(e.currentTarget.dataset.gameinfo);
+    let { id, wxapp_url } = e.currentTarget.dataset.gameinfo;
+    if (app.globalData.userInfo) {
+      app.getInGame(id, wxapp_url);
+    }
   }
 });

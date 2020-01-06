@@ -4,7 +4,10 @@ App({
   onLaunch: function() {},
   globalData: {
     userInfo: {},
-    URL: "https://rsx.majiangyun.com"
+    URL: "https://rsx.majiangyun.com",
+    gameId: -1,
+    gameLevel: "primary",
+    pockerNumber: -1
   },
   wxRequest(params) {
     let that = this;
@@ -37,5 +40,6 @@ App({
         }
       });
     });
-  }
+  },
+  getInGame(id, url) {}
 });

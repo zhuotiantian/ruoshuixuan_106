@@ -1,0 +1,9 @@
+<view wx:if="{{showSharePocket||showRegisterPocket}}">
+  <view class="fog"></view>
+  <image class="redPocket_image" src="/static/images/firstPage/redPocket.png" />
+  <image class="close_image" src="/static/images/firstPage/redPocket_close.png" bind:tap="close_redPocket" />
+  <view class="success" wx:if="{{showSharePocket}}">新人注册红包</view>
+  <view class="success" wx:if="{{showRegisterPocket}}">邀请红包</view>
+  <view class="success" style="top:35%;">{{list[0]['money']}}元</view>
+  <view class="redPocketBtn" bind:tap="getRedPocket">点击领取</view>
+</view>

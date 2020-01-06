@@ -1,0 +1,25 @@
+<view class="rank-wrapper">
+  <view class="header">
+    <view style="flex:1">
+      <image class="image" src="{{avatar}}" mode="aspectFit" lazy-load="true" />
+    </view>
+    <view style="flex:6">我的排名</view>
+    <view style="flex:1;text-align:center">{{currentUserIndex+1}}</view>
+  </view>
+  <view class="content">
+    <view class="ul">
+      <view class="li" wx:for="{{list}}" wx:key="index">
+        <view style="flex:1">
+          <image class="image" src="{{item.avatar}}" mode="aspectFit" lazy-load="true" />
+        </view>
+        <view style="flex:6">{{item.nickname}}</view>
+        <view style="flex:1;text-align:center">
+          <image class="icon" wx:if="{{index==0}}" src="/static/images/rank/ranking1.png"></image>
+          <image class="icon" wx:if="{{index==1}}" src="/static/images/rank/ranking2.png"></image>
+          <image class="icon" wx:if="{{index==2}}" src="/static/images/rank/ranking3.png"></image>
+          <view wx:if="{{index>2}}">{{index+1}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
