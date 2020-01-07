@@ -1,0 +1,108 @@
+.container {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  background: #f7f7f7;
+  padding: 0;
+}
+.container > .header {
+  height: 130rpx;
+  background: #173771;
+  display: flex;
+  justify-content: center;
+  color: white;
+  align-items: center;
+  position: relative;
+  z-index: 1001;
+}
+.container > .header .span {
+  flex: 1;
+  text-align: center;
+  height: 100%;
+  line-height: 130rpx;
+}
+
+.container > .header .span.active {
+  color: #24bcff;
+  position: relative;
+}
+
+.container > .header .span.active::after {
+  content: "";
+  height: 0px;
+  width: 0px;
+  border-color: transparent transparent white transparent;
+  border-style: dashed dashed solid dashed;
+  border-width: 20rpx;
+  position: absolute;
+  top: 95rpx;
+  right: 45%;
+}
+.content {
+  height: calc(100% - 132rpx);
+}
+.content .header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 60rpx;
+  height: 108rpx;
+}
+.image {
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 60rpx;
+  vertical-align: middle;
+}
+.icon {
+  height: 50rpx;
+  width: 38rpx;
+}
+.icon_check {
+  height: 20rpx;
+  width: 20rpx;
+  margin-left: 6rpx;
+}
+.content .list {
+  background: white;
+  color: #333333;
+  box-sizing: content-box;
+  margin: 30rpx;
+}
+.list .li {
+  display: flex;
+  padding: 20rpx 30rpx;
+  align-items: center;
+}
+
+.list .li:nth-child(2n) {
+  background: #e0f6ff;
+}
+
+.header-btn {
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  height: 98rpx;
+  align-items: center;
+  position: relative;
+  z-index: 11;
+  z-index: 1001;
+}
+
+.header-btn .span {
+  display: inline-block;
+  width: 154rpx;
+  height: 56rpx;
+  border: 2rpx solid #ccc;
+  border-radius: 34rpx;
+  line-height: 56rpx;
+  color: #999;
+  text-align: center;
+}
+
+.header-btn .span.active {
+  color: #24bcff;
+  background: #e0f6ff;
+  border: 1px solid transparent;
+}

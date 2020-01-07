@@ -1,0 +1,36 @@
+<view class="container">
+  <view class="header">
+    <view class="userImage">
+      <image class="image" src="{{userInfo.avatar}}"></image>
+    </view>
+    <view>
+      <view wx:if="{{!userInfo.nickname}}">未登录</view>
+      <view wx:else>
+        <view>{{userInfo.nickname}}</view>
+        <view>{{userInfo.mobile}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="content">
+    <view class="ul">
+      <view class="li" bind:tap="toRank">
+        <image class="item" style="height:44rpx;width:42rpx;" src="/static/images/my/my_icon2.png"></image>
+        <view class="span">排行榜</view>
+      </view>
+      <view class="li">
+        <image class="item" style="height:40rpx;width:46rpx;" src="/static/images/my/my_icon3.png"></image>
+        <button open-type="share" class="shareBtn">
+          <view class="span">分享邀请</view>
+        </button>
+      </view>
+      <view class="li" bind:tap="toRecord">
+        <image class="item" style="height:48rpx;width:38rpx;" src="/static/images/my/my_icon4.png"></image>
+        <view class="span">我的记录</view>
+      </view>
+      <view class="li" bind:tap="toMessage">
+        <image class="item" style="height:44rpx;width:46rpx;" src="/static/images/my/my_icon5.png"></image>
+        <view class="last span">我的消息</view>
+      </view>
+    </view>
+  </view>
+</view>

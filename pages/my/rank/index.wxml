@@ -1,0 +1,42 @@
+<view class="container">
+  <view class="header">
+    <view class="span {{active==='打卡时间'?'active':''}}" data-type='1' bind:tap="selectListType">
+      打卡时间
+    </view>
+    <view class="span {{active==='成绩'?'active':''}}" data-type='2' bind:tap="selectListType">
+      成绩
+    </view>
+  </view>
+  <view class="content">
+    <view class="header-btn" wx:if="{{active==='成绩'}}">
+      <view class="span {{activeBtn=='全校'?'active':''}}" data-type='3'>全校</view>
+      <view class="span {{activeBtn=='班级'?'active':''}}" data-type='4'>班级</view>
+      <view class="span arrow {{activeBtn=='单项排名'?'active':''}}">单项排名</view>
+    </view>
+    <view class="header">
+      <view style="flex:1">
+        <image class="image" src="{{avatar}}" mode="aspectFit" lazy-load="true" />
+      </view>
+      <view style="flex:6">我的排名</view>
+      <view style="flex:1;text-align:center">{{currentUserIndex+1}}</view>
+    </view>
+    <view class="list">
+      <scroll-view style="height:{{active=='打卡时间'?'75vh':'67vh'}}" scroll-y="true">
+        <view class="ul">
+          <view class="li" wx:for="{{list}}" wx:key="index">
+            <view style="flex:1">
+              <image class="image" src="{{item.avatar}}" mode="aspectFit" lazy-load="true" />
+            </view>
+            <view style="flex:6">{{item.nickname}}</view>
+            <view style="flex:1;text-align:center">
+              <image class="icon" wx:if="{{index==0}}" src="/static/images/rank/ranking1.png"></image>
+              <image class="icon" wx:if="{{index==1}}" src="/static/images/rank/ranking2.png"></image>
+              <image class="icon" wx:if="{{index==2}}" src="/static/images/rank/ranking3.png"></image>
+              <view wx:if="{{index>2}}">{{index+1}}</view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

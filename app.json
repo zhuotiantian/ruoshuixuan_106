@@ -1,5 +1,10 @@
 {
-  "pages": ["pages/firstPage/index", "pages/rank/index"],
+  "pages": [
+    "pages/firstPage/index",
+    "pages/rank/index",
+    "pages/my/index/index",
+    "pages/my/rank/index"
+  ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#173771",
@@ -39,7 +44,7 @@
       },
       {
         "text": "我的",
-        "pagePath": "pages/firstPage/index",
+        "pagePath": "pages/my/index/index",
         "iconPath": "/static/images/navigateBar/footer4.png",
         "selectedIconPath": "/static/images/navigateBar/footer4_active.png"
       }
