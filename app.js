@@ -10,7 +10,10 @@ App({
     gameLevel: "primary",
     pockerNumber: -1,
     swiper_list: [],
-    game_list: []
+    game_list: [],
+    gameId: -1,
+    gameInfo: [],
+    memoryTime: 0
   },
   wxRequest(params) {
     let that = this;
@@ -23,7 +26,10 @@ App({
         data: params.data || {},
         method: params.method,
         header: {
-          "content-type": params.method == "GET" ? "application/json" : "application/x-www-form-urlencoded",
+          "content-type":
+            params.method == "GET"
+              ? "application/json"
+              : "application/x-www-form-urlencoded",
           // 默认值
           token: params.token
         },
@@ -54,6 +60,7 @@ App({
       token
     });
     this.globalData.gameInfo = result.data.rules_of_the_game;
+    this.globalData.gameId = id;
     wx.redirectTo({
       url: "/pages/games/index/index"
     });

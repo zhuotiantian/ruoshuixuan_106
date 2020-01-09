@@ -5,7 +5,7 @@ page {
   background-color: #173771;
   -webkit-text-size-adjust: 100%;
   font-family: "Noto Sans S Chinese";
-  font-size: 30rpx;
+  font-size: 16px;
   color: #303133;
 }
 .container {

@@ -1,6 +1,5 @@
 @import "../../static/style/common.wxss";
 .title {
-  /* font-size: 4vmin; */
   padding: 0 4vmin 0 4vmin;
   width: calc(100% - 30px);
   background: #173771;

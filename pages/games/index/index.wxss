@@ -2,4 +2,105 @@
   padding: 0;
   width: 100%;
   height: 100%;
+  color: white;
+}
+.content {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.content-wrapper {
+  width: 100%;
+}
+.infoText {
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+.radioBtn {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.page-one .btn-group {
+  display: flex;
+  width: 60%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.page-one .btn-group .levelBtn {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.page-one .btn-group .levelBtn .radioBtn {
+  margin-right: 5px;
+}
+.btn-big {
+  height: 49px;
+  width: 110px;
+  border-radius: 50px;
+  text-align: center;
+  line-height: 49px;
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.btn-middle {
+  height: 40px;
+  width: 98px;
+  border-radius: 50px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.btnGroupWrapper {
+  display: flex;
+  font-size: 18px;
+  width: 80%;
+  position: relative;
+  transform: translateX(-50%);
+  left: 50%;
+  margin: 15px;
+}
+.label {
+  height: 28px;
+  line-height: 28px;
+  flex: 1;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+}
+.btn-group {
+  display: flex;
+  flex: 3;
+}
+.btnGroupWrapper .btn-group .span {
+  margin-right: 45px;
+  width: 50px;
+  height: 28px;
+  display: inline-block;
+  text-align: center;
+}
+
+.btnGroupWrapper .btn-group .active {
+  border-radius: 17px;
+  background: #24bcff;
+  display: inline-block;
+  text-align: center;
+  line-height: 28px;
 }

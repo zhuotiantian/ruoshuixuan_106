@@ -12,7 +12,7 @@
         {{ (time.minutes < 10 ? "0" : "") + time.minutes }}：
         {{ (time.seconds < 10 ? "0" : "") + time.seconds }}
       </view>
-      <view wx:if="startAnwserText" class="startAnswerText">开始作答</view>
+      <view wx:if="{{startAnwserText}}" class="startAnswerText">开始作答</view>
     </view>
     <view class="right">
       <view wx:if="{{showGameLevel}}">{{ gameLevel }}</view>
