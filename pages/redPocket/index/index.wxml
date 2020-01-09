@@ -1,0 +1,16 @@
+<view class="content">
+  <view>红包领取规则</view>
+  <view class="text">{{rule}}</view>
+  <view class="img_div" wx:for="{{list}}" wx:key="index">
+    <image class="image" src="{{domain+item.img}}" bind:tap="getMoney"></image>
+    <view>
+      <view class="btn btn-grey" bind-id="{{item.game_classification_id}}" bind:tap="showRedPocket" wx:if="{{item.status=='unclaimed'}}">
+        已完成任务，点击领取
+      </view>
+      <view class="btn btn-yellow" wx:else-if="{{item.status=='pending_sales'}}" bind-id="{{item.game_classification_id}}" bind-url="item.wxapp_url" bind:tap="toGame">
+        去完成任务
+      </view>
+      <view class="small-fog"></view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+<view class="content">
+  <view wx:for="{{list}}" wx:key="index" data-id="{{item.students_homework_details_id}}" bind:tap="toDetails">
+    <view class="img_div">
+      {{item.name}}
+      <image class="image" src="/static/images/firstPage/recordList.png"></image>
+    </view>
+    <p class="p">{{item.remarks}}</p>
+  </view>
+</view>

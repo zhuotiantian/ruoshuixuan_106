@@ -13,7 +13,7 @@
   </view>
   <view class="content">
     <view class="ul">
-      <view class="li" bind:tap="toRank">
+      <view class="li" data-url="/pages/my/rank/index" data-pages="/pages/my/rank/index" bind:tap="to">
         <image class="item" style="height:44rpx;width:42rpx;" src="/static/images/my/my_icon2.png"></image>
         <view class="span">排行榜</view>
       </view>
@@ -23,11 +23,11 @@
           <view class="span">分享邀请</view>
         </button>
       </view>
-      <view class="li" bind:tap="toRecord">
+      <view class="li" data-url="/pages/my/record/index" bind:tap="to">
         <image class="item" style="height:48rpx;width:38rpx;" src="/static/images/my/my_icon4.png"></image>
         <view class="span">我的记录</view>
       </view>
-      <view class="li" bind:tap="toMessage">
+      <view class="li" data-url="/pages/my/message/index" bind:tap="to">
         <image class="item" style="height:44rpx;width:46rpx;" src="/static/images/my/my_icon5.png"></image>
         <view class="last span">我的消息</view>
       </view>

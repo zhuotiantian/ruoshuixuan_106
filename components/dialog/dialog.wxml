@@ -3,6 +3,6 @@
   <view class="dialog-wrapper">
     <image src="/static/images/firstPage/close.png" class="close" catchtap="close"></image>
     <rich-text nodes="{{text}}" class="description"></rich-text>
-    <my-button type="yellow" size="small" class="absolute"></my-button>
+    <view class="btn btn-yellow absolute">确定</view>
   </view>
 </view>

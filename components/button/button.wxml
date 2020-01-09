@@ -1,3 +1,0 @@
-<view>
-  <view class="btn btn-{{type}} {{size}}">确定</view>
-</view>

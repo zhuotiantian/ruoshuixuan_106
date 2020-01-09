@@ -1,0 +1,9 @@
+<view class="container">
+  <view class="item" wx:for="{{list}}" wx:key="index">
+    <view class="header">
+      <view class="span">{{item.type_text}}</view>
+      <view class="span">{{item.createtime}}</view>
+    </view>
+    <view class="text">{{item.content}}</view>
+  </view>
+</view>

@@ -1,0 +1,35 @@
+.container {
+  padding: 30rpx;
+  background: white;
+  position: absolute;
+  height: calc(100% - 59rpx);
+  width: calc(100% - 59rpx);
+  overflow-y: scroll;
+}
+
+.text {
+  color: #999999;
+  font-size: 24rpx;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30rpx;
+  font-size: 26rpx;
+}
+
+.header > span {
+  flex: 1;
+}
+
+.header > span:last-child {
+  text-align: right;
+}
+
+.item {
+  padding: 30rpx;
+  border: 2rpx solid #e9e9e9;
+  border-radius: 12rpx;
+  margin-bottom: 30rpx;
+}

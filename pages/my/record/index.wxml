@@ -1,0 +1,47 @@
+<view class="container">
+  <view class="fog" wx:if="{{showPannel||showAlertBox}}" bind:tap="closeDrop"></view>
+  <view class="header">
+    <view class="span {{active=='打卡记录'?'active':''}}" data-type="打卡记录" bind:tap="selectListType">
+      打卡记录
+    </view>
+    <view class="span {{active=='成绩记录'?'active':''}}" data-type="成绩记录" bind:tap="selectListType">
+      成绩记录
+    </view>
+  </view>
+  <view class="content">
+    <view class="list" wx:if="{{active=='打卡记录'}}">
+      <scroll-view>
+        <view class="li" wx:for="{{list1}}" wx:key="index">
+          <view class="span">{{item.createtime}}</view>
+          <view class="span">打卡成功</view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="list" wx:else>
+      <view class="li" wx:for="{{list2}}" wx:key="index">
+        <view class="span">{{item.game}}</view>
+        <view class="span" bind:tap="toShare" data-item="{{item}}">
+          <view class="span">{{item.fraction}}</view>
+          <view class="span">
+            <image class="image" src="/static/images/my/share.png"></image>
+          </view>
+          <view class="span">分享</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="drop" wx:if="{{showPannel}}">
+    <button open-type="share">发送给好友</button>
+    <button bind:tap="alertBox">生成海报</button>
+    <button style="text-aviewgn:center;width:calc(100% - 10vmin)" bind:tap="closeDrop">取消</button>
+  </view>
+  <view class="alertBox" id="wrapper" style="top:{{showAlertBox?'0':'-9999rpx'}};z-index:{{showAlertBox?'1001':'-1001'}}">
+    <painter bind:imgOK="onImgOk" bind:imgErr="imgError" palette="{{data}}" style="position:fixed; top:30rpx;width:100%;height:100%"></painter>
+    <view class="footer div">
+      <button class="btn" style="flex:3" bind:tap="drawCanvas">保存成图片</button>
+      <button class="btn" style="flex:1;background-color:white;color:inherit;margin-left:30rpx" bind:tap="closeDrop">
+        取消
+      </button>
+    </view>
+  </view>
+</view>

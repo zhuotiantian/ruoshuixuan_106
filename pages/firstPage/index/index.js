@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-import regeneratorRuntime from "../../utils/runtime.js";
+import regeneratorRuntime from "../../../utils/runtime.js";
 const app = getApp();
 Page({
   data: {
@@ -77,24 +77,12 @@ Page({
       ["按照播放数字顺序记忆并作答所听数字", "记得越多越好"],
       ["记忆虚拟事件和日期，越多越好", "作答时将所记日期输入到所记历史事件前"]
     ];
-    let answerTime = [
-      0,
-      300,
-      7200,
-      1800,
-      900,
-      7200,
-      1800,
-      1800,
-      1800,
-      1800,
-      300,
-      900
-    ];
+    let answerTime = [0, 300, 7200, 1800, 900, 7200, 1800, 1800, 1800, 1800, 300, 900];
     game_list.forEach((e, index) => {
       e.rule = rules[index];
       e.answerTime = answerTime[index];
     });
+    app.globalData.game_list = game_list;
     this.setData({
       swiper_list: rotary_planting_map,
       game_list
@@ -157,7 +145,7 @@ Page({
   // 跳转到排行榜页面
   toRank() {
     wx.navigateTo({
-      url: "/pages/rank/index"
+      url: "/pages/firstPage/rank/index"
     });
   },
   // 领取红包
@@ -166,9 +154,7 @@ Page({
     let result = await app.wxRequest({
       url: "/api/wxapp.red_envelopes/getARedEnvelope",
       data: {
-        red_envelopes_id: this.data.showRegisterPocket
-          ? this.registerPocketList[0].id
-          : this.sharePocketList[0].id,
+        red_envelopes_id: this.data.showRegisterPocket ? this.registerPocketList[0].id : this.sharePocketList[0].id,
         game_classification_id: 0
       },
       token

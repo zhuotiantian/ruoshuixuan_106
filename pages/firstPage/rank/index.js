@@ -1,4 +1,4 @@
-import regeneratorRuntime from "../../utils/runtime.js";
+import regeneratorRuntime from "../../../utils/runtime.js";
 const app = getApp();
 Page({
   data: {

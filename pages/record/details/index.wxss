@@ -1,0 +1,52 @@
+.content {
+  padding: 30rpx;
+  background: white;
+  font-size: 26rpx;
+  position: absolute;
+  height: calc(100% - 59rpx);
+  width: calc(100% - 59rpx);
+  overflow-y: auto;
+  z-index: 2;
+}
+
+.p {
+  color: #666666;
+  margin-bottom: 30rpx;
+}
+
+.img_div {
+  width: 680rpx;
+  height: 318rpx;
+  overflow: hidden;
+  margin-bottom: 30rpx;
+  border-radius: 10rpx;
+  position: relative;
+}
+
+.image {
+  width: 92vmin;
+  height: 33.06667vmin;
+  position: absolute;
+  z-index: 1;
+}
+
+.yellow_btn {
+  padding: 6rpx 10rpx;
+}
+
+.item {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+  border-radius: 10rpx;
+  margin-bottom: 30rpx;
+}
+
+.btnGroup {
+  text-align: center;
+  position: relative;
+  margin-top: -7vmin;
+  top: -3vmin;
+}
+
+.default_btn {
+  background: #e0e0e0;
+}

@@ -1,10 +1,5 @@
 {
-  "pages": [
-    "pages/firstPage/index",
-    "pages/rank/index",
-    "pages/my/index/index",
-    "pages/my/rank/index"
-  ],
+  "pages": ["pages/firstPage/index/index", "pages/firstPage/rank/index", "pages/my/index/index", "pages/my/rank/index", "pages/my/record/index", "pages/my/message/index", "pages/record/index/index", "pages/record/details/index", "pages/redPocket/index/index"],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#173771",
@@ -26,19 +21,19 @@
     "list": [
       {
         "text": "首页",
-        "pagePath": "pages/firstPage/index",
+        "pagePath": "pages/firstPage/index/index",
         "iconPath": "/static/images/navigateBar/footer1.png",
         "selectedIconPath": "/static/images/navigateBar/footer1_active.png"
       },
       {
         "text": "红包",
-        "pagePath": "pages/firstPage/index",
+        "pagePath": "pages/redPocket/index/index",
         "iconPath": "/static/images/navigateBar/footer2.png",
         "selectedIconPath": "/static/images/navigateBar/footer2_active.png"
       },
       {
         "text": "打卡",
-        "pagePath": "pages/firstPage/index",
+        "pagePath": "pages/record/index/index",
         "iconPath": "/static/images/navigateBar/footer3.png",
         "selectedIconPath": "/static/images/navigateBar/footer3_active.png"
       },

@@ -1,0 +1,149 @@
+.container {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  background: white;
+}
+.header {
+  height: 110rpx;
+  background-color: #173771;
+  display: flex;
+  justify-content: center;
+  color: white;
+  align-items: center;
+}
+.header .span {
+  flex: 1;
+  text-align: center;
+}
+
+.header .span.active {
+  color: #24bcff;
+  position: relative;
+}
+
+.header .span.active::after {
+  content: "";
+  height: 0;
+  width: 0;
+  border-color: transparent transparent white transparent;
+  border-style: dashed dashed solid dashed;
+  border-width: 20rpx;
+  position: absolute;
+  top: 35rpx;
+  right: 45%;
+}
+.content {
+  padding: 30rpx;
+  background-color: #f7f7f7;
+  height: calc(100% - 172rpx);
+  font-size: 28rpx;
+}
+.list {
+  background-color: white;
+  padding: 15px;
+  height: calc(100% - 30px);
+  overflow-y: scroll;
+}
+
+.list .li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90rpx;
+  border-bottom: 2rpx solid #f7f7f7;
+}
+
+.list .li:last-child {
+  border-bottom: none;
+}
+
+.list .li > .span {
+  flex: 6;
+}
+.span {
+  display: inline;
+}
+.list .li > .span:last-child {
+  text-align: right;
+}
+
+.list .li > .span:last-child span:first-child {
+  margin-right: 5px;
+}
+.image {
+  width: 28rpx;
+  height: 28rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+  margin-left: 20rpx;
+}
+.drop {
+  height: 230rpx;
+  background-color: white;
+  position: absolute;
+  z-index: 1001;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 7vmin);
+  font-size: 28rpx;
+  padding: 30rpx;
+  text-align: center;
+}
+
+.drop .title {
+  color: #b4b4b4;
+  font-size: 24rpx;
+  line-height: 74rpx;
+  text-indent: 22rpx;
+}
+
+.drop button {
+  border-color: #fff;
+  background-color: #fff;
+  text-align: center;
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+}
+
+.drop button::after {
+  border-radius: 0;
+  border: none;
+}
+
+.drop p {
+  margin-bottom: 30rpx;
+  margin-top: 30rpx;
+}
+
+.drop image {
+  height: 40rpx;
+  width: 40rpx;
+  vertical-align: middle;
+  margin-right: 30rpx;
+}
+.alertBox {
+  position: absolute;
+  top: 10vmin;
+  bottom: 0;
+  left: 10vmin;
+  right: 0;
+  z-index: 1001;
+  height: 80%;
+  width: 80%;
+}
+.alertBox > .div:not(:last-child) {
+  padding: 30rpx;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+.footer {
+  display: flex;
+  padding: 0 !important;
+  margin-top: 30rpx;
+  position: relative;
+  top: 102%;
+}

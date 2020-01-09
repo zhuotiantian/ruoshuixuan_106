@@ -1,0 +1,13 @@
+<view class="content">
+  <view wx:for="{{list}}" class="item" wx:key="index">
+    <view class="img_div">
+      <image class="image" src="{{domain+item.img}}" />
+    </view>
+    <view style="text-align:center;" class="btnGroup">
+      <view wx:if="{{item.status=='not_finished'}}" data-item="{{item}}" class="btn btn-yellow" bind:tap="toGame">
+        待完成
+      </view>
+      <view wx:else class="btn btn-grey">已完成</view>
+    </view>
+  </view>
+</view>
