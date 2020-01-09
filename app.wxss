@@ -43,3 +43,7 @@ page {
   border: 2rpx solid white;
   background: #e0e0e0;
 }
+.btn-red {
+  background-color: #e21414;
+  color: red;
+}

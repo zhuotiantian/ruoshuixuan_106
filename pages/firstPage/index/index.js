@@ -29,13 +29,22 @@ Page({
     };
   },
   onLoad: function() {
-    if (!app.globalData.userInfo.token) {
+    let { game_list, swiper_list, userInfo } = app.globalData;
+
+    if (!userInfo.token) {
       let that = this;
       wx.login({
         success: function(res) {
           that.login(res.code);
         }
       });
+    } else {
+      // this.getIndexData();
+      this.setData({
+        game_list: game_list,
+        swiper_list: swiper_list
+      });
+      this.getRedPocketData();
     }
   },
   //获取用户信息
@@ -83,6 +92,7 @@ Page({
       e.answerTime = answerTime[index];
     });
     app.globalData.game_list = game_list;
+    app.globalData.swiper_list = rotary_planting_map;
     this.setData({
       swiper_list: rotary_planting_map,
       game_list
@@ -171,8 +181,8 @@ Page({
       url: "/pages/my/hongbao/main"
     });
   },
+  // 进入游戏
   toGame(e) {
-    console.log(e.currentTarget.dataset.gameinfo);
     let { id, wxapp_url } = e.currentTarget.dataset.gameinfo;
     if (app.globalData.userInfo) {
       app.getInGame(id, wxapp_url);

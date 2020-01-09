@@ -1,0 +1,4 @@
+<view class="container">
+  1111
+  <my-title bind:help="help"></my-title>
+</view>

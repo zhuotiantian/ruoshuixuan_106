@@ -29,7 +29,6 @@ Page({
   },
   // 选择列表类型
   selectListType(e) {
-    console.log(e);
     let type = e.currentTarget.dataset.type;
     this.setData({
       active: type
@@ -62,7 +61,28 @@ Page({
   },
   // 点击分享
   toShare(e) {
-    let item = e.currentTarget.dataset.item,
+    this.item = e.currentTarget.dataset.item;
+    this.setData({
+      showPannel: true
+    });
+  },
+  // 关闭列表
+  closeDrop() {
+    this.setData({
+      showPannel: false,
+      showAlertBox: false
+    });
+  },
+  // 显示分享图
+  alertBox() {
+    this.closeDrop();
+    this.createCanvas();
+  },
+  createCanvas() {
+    wx.showLoading({
+      title: "生成中"
+    });
+    let item = this.item,
       domain = app.globalData.URL;
     let { avatar, nickname } = app.globalData.userInfo;
     let canvasWidth = wx.getSystemInfoSync().windowWidth * 0.8,
@@ -188,32 +208,15 @@ Page({
       ]
     };
     this.setData({
-      showPannel: true,
       data: data
-    });
-    wx.nextTick(() => {
-      wx.showLoading({
-        title: "生成中"
-      });
-    });
-  },
-  // 关闭列表
-  closeDrop() {
-    this.setData({
-      showPannel: false,
-      showAlertBox: false
-    });
-  },
-  // 显示分享图
-  alertBox() {
-    this.closeDrop();
-    this.setData({
-      showAlertBox: true
     });
   },
   onImgOk(e) {
     wx.hideLoading();
     this.imagePath = e.detail.path;
+    this.setData({
+      showAlertBox: true
+    });
   },
   imgError(e) {
     console.log(e);
@@ -251,6 +254,6 @@ Page({
         }
       }
     });
-    this.template = {}; // 重置,下次点击生成时重新生成
+    this.setData({ data: {} }); // 重置,下次点击生成时重新生成
   }
 });

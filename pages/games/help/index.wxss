@@ -1,0 +1,6 @@
+.container {
+  color: white;
+  padding: 30rpx;
+  text-align: left;
+  padding-left: 120rpx;
+}

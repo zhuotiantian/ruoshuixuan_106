@@ -1,0 +1,50 @@
+.btn {
+  display: inline-block;
+  font-size: 14px;
+  text-align: center;
+  padding: 0 15px;
+  width: auto;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 17px;
+}
+.btn-yellow {
+  background: #f8b551;
+  color: black;
+}
+.btn-grey {
+  border: 2px solid white;
+  background: #e0e0e0;
+}
+.btn-red {
+  background-color: #e21414;
+  color: white;
+}
+.btn-white {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+}
+.btn-blue {
+  background: #24bcff;
+  color: white;
+}
+.arrow {
+  position: relative;
+}
+
+.arrow::after {
+  content: "";
+  border: 1px solid #ccc;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  margin-left: 20px;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  height: 10px;
+  width: 10px;
+}
+.arrow::after {
+  transform: rotate(-45deg);
+}

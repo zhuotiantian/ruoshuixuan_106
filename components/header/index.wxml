@@ -1,0 +1,33 @@
+<view class="title">
+  <view wx:if="{{isResult}}" class="result content">111</view>
+  <view wx:else="{{!isResult}}" class="not_result content">
+    <view class="left">
+      <view class="btn btn-red" bind:tap="help">帮助</view>
+      <view class="btn btn-white" wx:if="{{showTips}}" bind:tap="showTipsHandler">操作提示</view>
+      <view class="btn btn-white arrow" wx:if="{{showTips}}" bind:tap="showTipsHandler">显示方式</view>
+    </view>
+    <view class="center">
+      <view wx:if="{{showCountdown}}">
+        {{ time.hour < 10 ? "0" + time.hour : "" }}：
+        {{ (time.minutes < 10 ? "0" : "") + time.minutes }}：
+        {{ (time.seconds < 10 ? "0" : "") + time.seconds }}
+      </view>
+      <view wx:if="startAnwserText" class="startAnswerText">开始作答</view>
+    </view>
+    <view class="right">
+      <view wx:if="{{showGameLevel}}">{{ gameLevel }}</view>
+      <view class="btn btn-blue" wx:if="{{showChangePageBtn && !showPrevPage}}" bind:tap="nextPage">
+        下一页
+      </view>
+      <view class="btn btn-blue" wx:if="{{showChangePageBtn && showPrevPage}}" bind:tap="prevPage">
+        上一页
+      </view>
+      <view class="btn btn-yellow" wx:if="{{showFinishMemoryBtn}}" bind:tap="finishMemary">
+        记忆完成
+      </view>
+      <view class="btn btn-yellow" wx:if="{{showFinishAnwserBtn}}" bind:tap="finishAnwser">
+        作答完成
+      </view>
+    </view>
+  </view>
+</view>

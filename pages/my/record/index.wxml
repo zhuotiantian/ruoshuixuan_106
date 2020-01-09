@@ -36,12 +36,12 @@
     <button style="text-aviewgn:center;width:calc(100% - 10vmin)" bind:tap="closeDrop">取消</button>
   </view>
   <view class="alertBox" id="wrapper" style="top:{{showAlertBox?'0':'-9999rpx'}};z-index:{{showAlertBox?'1001':'-1001'}}">
-    <painter bind:imgOK="onImgOk" bind:imgErr="imgError" palette="{{data}}" style="position:fixed; top:30rpx;width:100%;height:100%"></painter>
+    <painter bind:imgOK="onImgOk" bind:imgErr="imgError" palette="{{data}}" style="position:fixed; top:{{showAlertBox?'30rpx':'-9999rpx'}};width:100%;height:100%"></painter>
     <view class="footer div">
-      <button class="btn" style="flex:3" bind:tap="drawCanvas">保存成图片</button>
-      <button class="btn" style="flex:1;background-color:white;color:inherit;margin-left:30rpx" bind:tap="closeDrop">
+      <view class="btn btn-grey" style="flex:3" bind:tap="drawCanvas">保存成图片</view>
+      <view class="btn btn-grey" style="flex:1;background-color:white;color:inherit;margin-left:30rpx" bind:tap="closeDrop">
         取消
-      </button>
+      </view>
     </view>
   </view>
 </view>

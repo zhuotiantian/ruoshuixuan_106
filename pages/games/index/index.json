@@ -1,0 +1,6 @@
+{
+  "pageOrientation": "landscape",
+  "usingComponents": {
+    "my-title": "/components/header/index"
+  }
+}
