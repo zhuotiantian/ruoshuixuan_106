@@ -30,7 +30,6 @@ Page({
   },
   onLoad: function() {
     let { game_list, swiper_list, userInfo } = app.globalData;
-
     if (!userInfo.token) {
       let that = this;
       wx.login({
@@ -93,6 +92,7 @@ Page({
       e.pathname = pathName[index];
     });
     app.globalData.game_list = game_list;
+    app.globalData.swiper_list = rotary_planting_map;
     this.setData({
       swiper_list: rotary_planting_map,
       game_list

@@ -9,20 +9,20 @@
       <view class="btn btn-white" bind:tap="back">退回</view>
     </view>
   </view>
-  <view class="result-div">
+  <view class="result-div" wx:if="{{result.length>0}}">
     <view class="arrow arrow-left"></view>
     <scroll-view class="result-scroll" scroll-x="true" scroll-y="false">
-      <view class="result-wrapper">
-        <image bint:tap="selectResultPocker" data-index="{{index}}" data-item="{{item}}" class="pocker {{item.selected?'active':''}}" style="right:{{(result.length-index)*30}}px" wx:for="{{result}}" wx:key="index" src="{{item.url}}" ref="pocker" />
+      <view class="result-wrapper" style="width:{{(result.length-1)*20+51}}px">
+        <image bint:tap="selectResultPocker" data-index="{{index}}" data-item="{{item}}" class="pocker {{item.selected?'active':''}}" style="right:{{(index)*20}}px;z-index:{{result.length-index}}" wx:for="{{result}}" wx:key="index" src="{{item.url}}" ref="pocker" />
       </view>
     </scroll-view>
     <view class="arrow arrow-right"></view>
   </view>
-  <scroll-view class="pocker-scroll" scroll-y="true" >
+  <scroll-view class="pocker-scroll" scroll-y="true" style="height:{{result.length>0?(hasToOperationPocker?'calc(100% - 155px)':'calc(100% - 125px)'):'86%'}}">
     <view class="list">
-      <view class="row" wx:for="{{pocker}}" wx:key="rowIndex">
-          <image bind:tap="selectPocker" data-row="{{item.row}}" data-column="{{item.column}}" ref="pocker" class="pocker {{item.show?'':'hidden'}}" wx:for="{{item}}" src="/static/images/pocker/{{item.column}}-{{item.row}}.png" wx:key="columnIndex"></image>
-        </view>
+      <view class="row" wx:for="{{pocker}}" wx:key="index">
+        <image bind:tap="selectPocker" data-row="{{item.row}}" data-column="{{item.column}}" ref="pocker" class="pocker {{item.show?'':'hidden'}}" wx:for="{{item}}" src="/static/images/pocker/{{item.column}}-{{item.row}}.png" wx:key="columnIndex"></image>
+      </view>
     </view>
   </scroll-view>
 </view>

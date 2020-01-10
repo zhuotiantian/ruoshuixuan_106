@@ -4,11 +4,12 @@
   padding: 0;
 }
 .pocker {
-  width: 51px;
-  height: 75px;
+  width: 45px;
+  height: 59px;
   margin-right: 5px;
   margin-bottom: 5px;
 }
+
 .btnGroup .btn:not(:last-child) {
   margin-right: 10px;
 }
@@ -17,12 +18,31 @@
 }
 .result-div {
   display: flex;
-  height: 125px;
+  height: 59px;
   align-items: center;
+  margin-bottom: 15px;
 }
 .result-scroll {
-  width: 99%;
+  width: 80%;
   height: 100%;
   white-space: nowrap;
   margin: 0 auto;
+  position: relative;
+}
+.result-div .pocker {
+  width: 45px;
+  height: 59px;
+  position: absolute;
+  margin: 0;
+}
+.result-wrapper {
+  height: 59px;
+  position: absolute;
+  right: 0;
+}
+.list {
+  text-align: center;
+}
+.hidden {
+  visibility: hidden;
 }
