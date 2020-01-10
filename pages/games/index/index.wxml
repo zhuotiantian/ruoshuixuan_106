@@ -2,24 +2,27 @@
   <my-title bind:help="help"></my-title>
   <view class="content">
     <view class="content-wrapper" wx:if="{{isPocker}}">
-      <view wx:if="{{page===1}}" class="page-one">
+      <view wx:if="{{page===1&&currentGameName!=='闪视扑克牌'}}" class="page-one">
         <view class="infoText">请选择</view>
         <view class="btn-group">
           <view class="levelBtn" data-level="primary" bind:tap="selectLevel">
             <image class="radioBtn" src="/static/images/firstPage/circle_active.png" wx:if="{{level=='primary'}}"></image>
             <image class="radioBtn" src="/static/images/firstPage/circle.png" wx:if="{{level=='senior'}}"></image>
-            <view wx:if="{{level=='primary'}}">初级玩家</view>
+            <view>初级玩家</view>
           </view>
           <view class="levelBtn" data-level="senior" bind:tap="selectLevel">
             <image class="radioBtn" src="/static/images/firstPage/circle.png" wx:if="{{level=='primary'}}"></image>
             <image class="radioBtn" src="/static/images/firstPage/circle_active.png" wx:if="{{level=='senior'}}"></image>
-            <view wx:if="{{level=='primary'}}">高级玩家</view>
+            <view>高级玩家</view>
           </view>
         </view>
         <view class="btn btn-yellow btn-middle" bind:tap="confirm">确认</view>
       </view>
       <view wx:else>
-        <view wx:if="{{currentGameName==='快速扑克牌'||currentGameName==='马拉松扑克牌'}}">本轮记忆时间：</view>
+        <view wx:if="{{currentGameName==='闪视扑克牌'}}" class="infoText">点击选择</view>
+        <view wx:if="{{currentGameName==='快速扑克牌'||currentGameName==='马拉松扑克牌'}}" class="memoryTimeText">
+          本轮记忆时间：{{memory_time}}
+        </view>
         <view wx:if="{{currentGameName==='闪视扑克牌'}}" class="btnGroupWrapper">
           <view class="label">闪视时间：</view>
           <view class="btn-group">
@@ -38,6 +41,36 @@
         </view>
         <view class="btn btn-yellow btn-big" bind:tap="start">开始游戏</view>
       </view>
+    </view>
+    <view class="content-wrapper" wx:else>
+      <view class="page-one">
+        <view class="memoryTimeText">本轮记忆时间：{{memory_time}}</view>
+        <view class="infoText">请选择</view>
+        <view class="btn-group">
+          <view class="levelBtn" data-level="primary" bind:tap="selectLevel">
+            <image class="radioBtn" src="/static/images/firstPage/circle_active.png" wx:if="{{level=='primary'}}"></image>
+            <image class="radioBtn" src="/static/images/firstPage/circle.png" wx:if="{{level=='senior'}}"></image>
+            <view>初级玩家</view>
+          </view>
+          <view class="levelBtn" data-level="senior" bind:tap="selectLevel">
+            <image class="radioBtn" src="/static/images/firstPage/circle.png" wx:if="{{level=='primary'}}"></image>
+            <image class="radioBtn" src="/static/images/firstPage/circle_active.png" wx:if="{{level=='senior'}}"></image>
+            <view>高级玩家</view>
+          </view>
+        </view>
+        <view class="btn btn-yellow btn-big" bind:tap="start">开始游戏</view>
+      </view>
+    </view>
+  </view>
+  <view class="fog" wx:if="{{showRuleBox}}" bind:tap="close"></view>
+  <view class="gameRuleBox" wx:if="{{showRuleBox}}">
+    <view class="wrapper">
+      <view class="closeBtn">
+        <image src="/static/images/firstPage/guanbi.png" class="image" bind:tap="close"></image>
+      </view>
+      <view class='h1'>游戏规则</view>
+      <view class="p" wx:for="{{rule}}" wx:key="index">{{index+1}}、{{item}}</view>
+      <view class="p" class="red">(详情见左上角帮助)</view>
     </view>
   </view>
 </view>

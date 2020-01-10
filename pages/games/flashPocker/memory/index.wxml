@@ -1,0 +1,12 @@
+<view class="container">
+  <my-title showFinishMemoryBtn="{{showFinishMemoryBtn}}" bind:finishMemory="finishMemory"></my-title>
+  <view class="list">
+    <view class="pocker-wrapper" style="width:{{(bgCounts.length-1)*20+124}}px;" wx:if="{{showPocker.length===0}}">
+      <image class="pocker memory-pocker" wx:for="{{bgCounts}}" wx:key="index" style="left:{{index*20}}px;z-index:{{index}}" src="/static/images/firstPage/pockerbg.png" />
+    </view>
+    <view v-else class="pocker-wrapper" style="width:{{(pockerNumber-1)*40+124}}px;">
+      <image class="pocker memory-pocker" ref="pocker" wx:for="{{showPocker}}" style="left:{{index*40}}px;z-index:{{index}}" wx:key="index" src="/static/images/pocker/{{item.index}}-{{item.color}}.png" />
+    </view>
+  </view>
+  <view class="interval" wx:if="{{showInterval}}">{{number}}</view>
+</view>

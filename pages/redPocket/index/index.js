@@ -17,10 +17,16 @@ Page({
     });
     this.setData({
       rule: result.data.rule_description,
-      list: result.data.list
+      list: result.data.list.filter(e => {
+        return e.game_classification_id !== 0 && e.status !== "received";
+      })
     });
   },
   getMoney(e) {},
   showRedPocket(e) {},
-  toGame(e) {}
+  // 进入游戏
+  toGame(e) {
+    let gameId = e.currentTarget.dataset.id;
+    app.getInGame(gameId, "redPocket");
+  }
 });

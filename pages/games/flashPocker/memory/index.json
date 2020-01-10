@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "闪视扑克牌",
+  "pageOrientation": "landscape",
+  "usingComponents": {
+    "my-title": "/components/header/index"
+  }
+}

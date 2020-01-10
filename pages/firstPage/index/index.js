@@ -39,7 +39,6 @@ Page({
         }
       });
     } else {
-      // this.getIndexData();
       this.setData({
         game_list: game_list,
         swiper_list: swiper_list
@@ -87,12 +86,13 @@ Page({
       ["记忆虚拟事件和日期，越多越好", "作答时将所记日期输入到所记历史事件前"]
     ];
     let answerTime = [0, 300, 7200, 1800, 900, 7200, 1800, 1800, 1800, 1800, 300, 900];
+    let pathName = ["flashPocker", "fastPocker", "marathonPocker", "binaryNumber", "fastNumber", "marathonNumber", "randomWords", "peopleImage", "abstractPicture", "listenAndRememberNumber", "virturlEventAndDate"];
     game_list.forEach((e, index) => {
       e.rule = rules[index];
       e.answerTime = answerTime[index];
+      e.pathname = pathName[index];
     });
     app.globalData.game_list = game_list;
-    app.globalData.swiper_list = rotary_planting_map;
     this.setData({
       swiper_list: rotary_planting_map,
       game_list
@@ -183,9 +183,9 @@ Page({
   },
   // 进入游戏
   toGame(e) {
-    let { id, wxapp_url } = e.currentTarget.dataset.gameinfo;
+    let { id } = e.currentTarget.dataset.gameinfo;
     if (app.globalData.userInfo) {
-      app.getInGame(id, wxapp_url);
+      app.getInGame(id, "firstPage");
     }
   }
 });

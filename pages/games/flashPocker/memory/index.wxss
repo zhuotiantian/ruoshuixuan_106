@@ -1,0 +1,21 @@
+.container {
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+.list {
+  height: calc(100% - 30px);
+}
+.interval {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  background: rgba(0, 0, 0, 0.3);
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 100px;
+  text-align: center;
+  font-size: 20px;
+}

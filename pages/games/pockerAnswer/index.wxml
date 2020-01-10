@@ -1,0 +1,28 @@
+<view class="container">
+  <my-title startAnwserText="{{startAnwserText}}" showFinishAnwserBtn="{{true}}"></my-title>
+  <view class="btnGroup" wx:if="{{hasToOperationPocker}}">
+    <view wx:if="{{operationType!==''}}">请在待选区域选择需要{{operationType}}的牌</view>
+    <view class="wrapper">
+      <view class="btn btn-white" bind:tap="replacePocker">替换</view>
+      <view class="btn btn-white" bind:tap="insertLeft">从右插入</view>
+      <view class="btn btn-white" bind:tap="insertRight">从左插入</view>
+      <view class="btn btn-white" bind:tap="back">退回</view>
+    </view>
+  </view>
+  <view class="result-div">
+    <view class="arrow arrow-left"></view>
+    <scroll-view class="result-scroll" scroll-x="true" scroll-y="false">
+      <view class="result-wrapper">
+        <image bint:tap="selectResultPocker" data-index="{{index}}" data-item="{{item}}" class="pocker {{item.selected?'active':''}}" style="right:{{(result.length-index)*30}}px" wx:for="{{result}}" wx:key="index" src="{{item.url}}" ref="pocker" />
+      </view>
+    </scroll-view>
+    <view class="arrow arrow-right"></view>
+  </view>
+  <scroll-view class="pocker-scroll" scroll-y="true" >
+    <view class="list">
+      <view class="row" wx:for="{{pocker}}" wx:key="rowIndex">
+          <image bind:tap="selectPocker" data-row="{{item.row}}" data-column="{{item.column}}" ref="pocker" class="pocker {{item.show?'':'hidden'}}" wx:for="{{item}}" src="/static/images/pocker/{{item.column}}-{{item.row}}.png" wx:key="columnIndex"></image>
+        </view>
+    </view>
+  </scroll-view>
+</view>

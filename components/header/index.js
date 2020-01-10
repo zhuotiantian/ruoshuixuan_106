@@ -34,7 +34,9 @@ Component({
     // 点击上一页
     prevPage() {},
     // 点击记忆完成按钮
-    finishMemary() {},
+    finishMemary() {
+      this.triggerEvent("finishMemory");
+    },
     // 点击作答完成按钮
     finishAnwser() {}
   }

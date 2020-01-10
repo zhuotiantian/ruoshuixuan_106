@@ -13,7 +13,15 @@ App({
     game_list: [],
     gameId: -1,
     gameInfo: [],
-    memoryTime: 0
+    memoryTime: 0,
+    gameContent: {}
+  },
+  resetGameInfo() {
+    this.globalData = Object.assign(this.globalData, {
+      pockerNumber: -1,
+      memoryTime: 0,
+      gameLevel: "primary"
+    });
   },
   wxRequest(params) {
     let that = this;
@@ -26,10 +34,7 @@ App({
         data: params.data || {},
         method: params.method,
         header: {
-          "content-type":
-            params.method == "GET"
-              ? "application/json"
-              : "application/x-www-form-urlencoded",
+          "content-type": params.method == "GET" ? "application/json" : "application/x-www-form-urlencoded",
           // 默认值
           token: params.token
         },
@@ -47,7 +52,8 @@ App({
       });
     });
   },
-  async getInGame(id, url) {
+  async getInGame(id, entry) {
+    this.resetGameInfo();
     let { token } = this.globalData.userInfo;
     wx.showLoading({
       title: "加载中"
@@ -62,7 +68,7 @@ App({
     this.globalData.gameInfo = result.data.rules_of_the_game;
     this.globalData.gameId = id;
     wx.redirectTo({
-      url: "/pages/games/index/index"
+      url: "/pages/games/index/index?isNew=" + JSON.stringify(entry === "firstPage")
     });
   }
 });

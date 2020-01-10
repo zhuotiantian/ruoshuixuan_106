@@ -1,5 +1,5 @@
 {
-  "pages": ["pages/firstPage/index/index", "pages/games/index/index", "pages/firstPage/rank/index", "pages/my/index/index", "pages/my/rank/index", "pages/my/record/index", "pages/my/message/index", "pages/record/index/index", "pages/record/details/index", "pages/redPocket/index/index", "pages/games/help/index"],
+  "pages": ["pages/firstPage/index/index", "pages/games/index/index", "pages/firstPage/rank/index", "pages/my/index/index", "pages/my/rank/index", "pages/my/record/index", "pages/my/message/index", "pages/record/index/index", "pages/record/details/index", "pages/redPocket/index/index", "pages/games/help/index", "pages/games/flashPocker/memory/index", "pages/games/pockerAnswer/index"],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#173771",
